@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AudioExtract Pro</title>
+
+<link href="https://fonts.googleapis.com/css2r:wght@300;400;500;600;700;800&display=swap
+favicon.ico
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#0B1020;
+color:white;
+overflow-x:hidden;
+}
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
+
+.gradient{
+position:fixed;
+width:800px;
+height:800px;
+background:radial-gradient(circle,#2563EB55,#7C3AED00);
+top:-200px;
+right:-200px;
+z-index:-1;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+backdrop-filter:blur(20px);
+background:rgba(11,16,32,.85);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:1000;
+}
+
+nav{
+height:80px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#fff;
+}
+
+.logo span{
+color:#2563EB;
+}
+
+.links{
+display:flex;
+gap:30px;
+}
+
+.links a{
+color:#cbd5e1;
+text-decoration:none;
+transition:.3s;
+}
+
+.links a:hover{
+color:white;
+}
+
+.btn{
+padding:14px 25px;
+background:#2563EB;
+border:none;
+border-radius:12px;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+background:#1d4ed8;
+transform:translateY(-2px);
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding-top:120px;
+}
+
+.hero h1{
+font-size:70px;
+font-weight:800;
+line-height:1.1;
+max-width:900px;
+margin:auto;
+}
+
+.hero h1 span{
+background:linear-gradient(90deg,#2563EB,#7C3AED);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+margin-top:25px;
+font-size:20px;
+color:#94A3B8;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+.btn-secondary{
+background:transparent;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.upload-section{
+padding:100px 0;
+}
+
+.upload-box{
+max-width:800px;
+margin:auto;
+background:#121a31;
+border:2px dashed #2563EB;
+border-radius:30px;
+padding:60px;
+text-align:center;
+}
+
+.upload-icon{
+font-size:80px;
+margin-bottom:20px;
+}
+
+.upload-box h2{
+margin-bottom:10px;
+}
+
+.upload-box p{
+color:#94A3B8;
+}
+
+.upload-btn{
+margin-top:25px;
+}
+
+.features{
+padding:120px 0;
+}
+
+.section-title{
+text-align:center;
+font-size:48px;
+font-weight:800;
+margin-bottom:70px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:#131d38;
+padding:35px;
+border-radius:25px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+margin:20px 0;
+}
+
+.card p{
+color:#94A3B8;
+line-height:1.8;
+}
+
+.stats{
+padding:120px 0;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+.stat{
+text-align:center;
+}
+
+.stat h2{
+font-size:50px;
+color:#2563EB;
+}
+
+.stat p{
+color:#94A3B8;
+}
+
+.pricing{
+padding:120px 0;
+}
+
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.price-card{
+background:#131d38;
+padding:40px;
+border-radius:30px;
+}
+
+.price-card.featured{
+background:linear-gradient(135deg,#2563EB,#7C3AED);
+}
+
+.price{
+font-size:60px;
+font-weight:800;
+margin:20px 0;
+}
+
+.price-card ul{
+list-style:none;
+margin:30px 0;
+}
+
+.price-card li{
+padding:12px 0;
+color:#dbeafe;
+}
+
+.faq{
+padding:120px 0;
+}
+
+.faq-item{
+background:#131d38;
+padding:30px;
+margin-bottom:20px;
+border-radius:20px;
+}
+
+.faq-item h3{
+margin-bottom:15px;
+}
+
+.faq-item p{
+color:#94A3B8;
+}
+
+footer{
+padding:50px 0;
+border-top:1px solid rgba(255,255,255,.08);
+text-align:center;
+color:#94A3B8;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:45px;
+}
+
+.links{
+display:none;
+}
+
+.stats-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="gradient"></div>
+
+<select name="format">
+    <option value="mp3">MP3</option>
+    <option value="wav">WAV</option>
+    <option value="aac">AAC</option>
+    <option value="flac">FLAC</option>
+</select>
+
+<header>
+<div class="container">
+<nav>
+
+<div class="logo">
+Audio<span>Extract</span> Pro
+</div>
+
+<div class="links">
+#Accueil</a>
+#Convertisseur</a>
+#Fonctionnalités</a>
+#Tarifs</a>
+#API</a>
+#Contact</a>
+</div>
+
+<button class="btn">
+Commencer
+</button>
+
+</nav>
+</div>
+</header>
+
+
+
+<section class="hero">
+
+<div class="container">
+
+<h1>
+Extrayez l'audio de vos vidéos
+<span>en quelques secondes</span>
+</h1>
+
+<p>
+Convertissez MP4, MOV, MKV, AVI et WebM en MP3, WAV,
+AAC ou FLAC grâce à une infrastructure ultra rapide
+et sécurisée.
+</p>
+
+<div class="hero-buttons">
+<button class="btn">
+Commencer gratuitement
+</button>
+
+<button class="btn btn-secondary">
+Voir la démonstration
+</button>
+</div>
+
+<div id="loading" style="display:none">
+  Conversion en cours...
+</div>
+
+</div>
+
+<div id="loading" style="display:none;">
+⏳ Conversion en cours...
+</div>
+
+</section>
+
+<section class="upload-section">
+
+<div class="container">
+
+<div class="upload-box">
+
+<form action="/upload" method="POST☁️
+</div>
+
+<h2>Glissez votre vidéo ici</h2>
+
+<p>
+MP4 • MOV • AVI • MKV • WEBM
+</p>
+
+<br>
+
+<input
+type="file"
+name="video"
+accept="video/*"
+required
+>
+
+<br><br>
+
+<button
+type="submit"
+class="btn upload-btn">
+Extraire l'audio
+</button>
+
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<div class="container">
+
+<h2 class="section-title">
+Pourquoi choisir AudioExtract Pro ?
+</h2>
+
+<div class="grid">
+
+    <label class="upload-btn">
+    Choisir une vidéo
+    <input
+      type="file"
+      name="video"
+      hidden
+      accept="video/*">
+</label>
+
+<div class="card">
+<h3>⚡ Ultra Rapide</h3>
+<p>
+Traitement optimisé avec FFmpeg et serveurs haute performance.
+</p>
+</div>
+
+<div class="card">
+<h3>🔒 Sécurisé</h3>
+<p>
+Suppression automatique des fichiers après téléchargement.
+</p>
+</div>
+
+<div class="card">
+<h3>🎵 Qualité Studio</h3>
+<p>
+Extraction audio jusqu'à 320 kbps.
+</p>
+</div>
+
+<div class="card">
+<h3>☁️ Cloud</h3>
+<p>
+Disponible partout sans installation.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+    
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat">
+<h2>5M+</h2>
+<p>Conversions</p>
+</div>
+
+<div class="stat">
+<h2>120+</h2>
+<p>Pays</p>
+</div>
+
+<div class="stat">
+<h2>99.99%</h2>
+<p>Disponibilité</p>
+</div>
+
+<div class="stat">
+<h2>300K+</h2>
+<p>Utilisateurs</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="pricing">
+
+<div class="container">
+
+<h2 class="section-title">
+Tarifs
+</h2>
+
+<div class="pricing-grid">
+
+<div class="price-card">
+
+<h3>Gratuit</h3>
+
+<div class="price">
+0€
+</div>
+
+<ul>
+<li>✔ MP3</li>
+<li>✔ 200 Mo maximum</li>
+<li>✔ Support standard</li>
+<li>✔ Traitement rapide</li>
+</ul>
+
+<button class="btn">
+Commencer
+</button>
+
+</div>
+
+<div class="price-card featured">
+
+<h3>Premium</h3>
+
+<div class="price">
+9,99€
+</div>
+
+<ul>
+<li>✔ Conversions illimitées</li>
+<li>✔ MP3 • WAV • AAC • FLAC</li>
+<li>✔ Priorité serveur</li>
+<li>✔ API développeur</li>
+<li>✔ Support premium</li>
+</ul>
+
+<button class="btn">
+Essai Gratuit
+</button>
+
+</div>
+
+</div>
+
+<
+
+</div>
+
+</section>
+
+<section class="faq">
+
+<div class="container">
+
+<h2 class="section-title">
+Questions fréquentes
+</h2>
+
+<div class="faq-item">
+<h3>Quels formats sont acceptés ?</h3>
+<p>MP4, MOV, AVI, MKV et WEBM.</p>
+</div>
+
+<div class="faq-item">
+<h3>Les fichiers sont-ils supprimés ?</h3>
+<p>Oui, automatiquement après téléchargement.</p>
+</div>
+
+<div class="faq-item">
+<h3>Puis-je extraire du WAV ?</h3>
+<p>Oui avec l'offre Premium.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<h3>AudioExtract Pro</h3>
+
+<br>
+
+<p>
+© 2026 AudioExtract Pro. Tous droits réservés.
+</p>
+
+</div>
+
+</footer>
+
+<script>
+document.querySelector("form")
+.addEventListener("submit", function() {
+    document.getElementById("loading")
+    .style.display = "block";
+});
+</script>
+
+</body>
+</html>
